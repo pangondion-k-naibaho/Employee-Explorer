@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Employee Explorer</string>
+    <string name="tvDummyTitle">Dummy Title</string>
+    <string name="tvInputTextError">This form is required</string>
+</resources>
