@@ -74,12 +74,28 @@ class HomeActivity : ComponentActivity() {
             }
         })
 
-        binding.srlHome.apply {
-            setOnRefreshListener {
-                homeViewModel.getEmployees()
-                homeViewModel.collectionEmployeesResponse.observe(this@HomeActivity, {employeesResponse->
-                    rvAdapter!!.updateItem(employeesResponse.employees!!)
-                })
+        binding.apply {
+            srlHome.apply {
+                setOnRefreshListener {
+                    homeViewModel.getEmployees()
+                    homeViewModel.collectionEmployeesResponse.observe(this@HomeActivity, {employeesResponse->
+                        rvAdapter!!.updateItem(employeesResponse.employees!!)
+                    })
+                }
+            }
+
+            btnTrash.apply {
+                setOnClickListener {
+                    homeViewModel.getEmptyEmployees()
+                    homeViewModel.collectionOtherEmployeesResponse.observe(this@HomeActivity, {otherEmployeeResponse->
+                        rvAdapter!!.updateItem(otherEmployeeResponse.employees!!)
+
+                        if(otherEmployeeResponse.employees.size == 0) {
+                            rvEmployee.visibility = View.GONE
+                            tvEmpty.visibility = View.VISIBLE
+                        }
+                    })
+                }
             }
         }
     }
