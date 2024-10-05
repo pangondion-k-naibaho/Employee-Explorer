@@ -104,4 +104,7 @@
 
     <color name="full_transparent">#00000000</color>
 
+    <color name="fresh_blue">#09A1F1</color>
+    <color name="techno_turqoise">#60BE8E</color>
+
 </resources>

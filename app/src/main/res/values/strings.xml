@@ -2,4 +2,19 @@
     <string name="app_name">Employee Explorer</string>
     <string name="tvDummyTitle">Dummy Title</string>
     <string name="tvInputTextError">This form is required</string>
+    <string name="tvDummyName">Dummy Name</string>
+    <string name="tvDummyPhoneNum">+00–00000000</string>
+    <string name="tvDummyEmail">thisisdummy@mail.com</string>
+    <string name="tvDummyTeam">Dummy Team</string>
+    <string name="tvDummyEmployeeType">Dummy Type</string>
+    <string name="tvFormatEmploymentType">Employement Type : %s</string>
+    <string name="tvUnknownTeam">Unknown Team</string>
+    <string name="tvEmployeeEmpty">No employees available at the moment. Please refresh to try again.</string>
+    <string name="toastEmployeeMalformedMessage">Unable to display employee details due to invalid data. Please refresh to try again.</string>
+    <string name="dummyPopUpSuccessTitle">This is Success Title</string>
+    <string name="dummyPopUpSuccessDesc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="dummyPopUpQuestionDesc">Lorem ipsum dolor sit amet, consectetur adipiscing elit?</string>
+    <string name="popUpOptionYes">Yes</string>
+    <string name="popUpOptionNo">No</string>
+    <string name="popUpOptionCancel">Cancel</string>
 </resources>
