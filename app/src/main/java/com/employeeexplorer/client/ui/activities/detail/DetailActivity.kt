@@ -12,6 +12,8 @@ import com.employeeexplorer.client.data.Constants.TYPE_CONSTANTS.Companion.FULL_
 import com.employeeexplorer.client.data.Constants.TYPE_CONSTANTS.Companion.PART_TIME
 import com.employeeexplorer.client.data.model.response.EmployeeResponse
 import com.employeeexplorer.client.databinding.ActivityDetailBinding
+import com.employeeexplorer.client.ui.activities.home.HomeActivity
+import com.employeeexplorer.client.ui.custom_components.CustomActionbar
 
 class DetailActivity : AppCompatActivity() {
     private val TAG = DetailActivity::class.java.simpleName
@@ -34,6 +36,17 @@ class DetailActivity : AppCompatActivity() {
         deliveredEmployee = intent.getParcelableExtra<EmployeeResponse>(EXTRA_EMPLOYEE)!!
 
         binding.apply {
+
+            cabDetail.apply {
+                setTitle(getString(R.string.tvActionbarDetail))
+                setListener(object: CustomActionbar.ActionbarListener{
+                    override fun onButtonLeftClicked() {
+                        startActivity(HomeActivity.newIntent(this@DetailActivity))
+                        finish()
+                    }
+                })
+            }
+
             Glide.with(this@DetailActivity)
                 .load(deliveredEmployee.photoUrlLarge)
                 .into(ivPhoto)

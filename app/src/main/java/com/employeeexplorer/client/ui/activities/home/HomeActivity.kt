@@ -1,5 +1,7 @@
 package com.employeeexplorer.client.ui.activities.home
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -25,6 +27,11 @@ class HomeActivity : ComponentActivity() {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var homeViewModel: HomeViewModel
     private var rvAdapter: ItemEmployeeAdapter?= null
+
+    companion object{
+        fun newIntent(context: Context): Intent = Intent(context, HomeActivity::class.java)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)

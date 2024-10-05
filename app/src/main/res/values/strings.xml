@@ -26,4 +26,6 @@
     <string name="tvDetailTeamTitle">Team :</string>
     <string name="tvDetailTypeTitle">Type :</string>
     <string name="tvDetailBiographyTitle">Biography :</string>
+    <string name="tvDummy_ToolbarTitle">Dummy Title</string>
+    <string name="tvActionbarDetail">Detail</string>
 </resources>
