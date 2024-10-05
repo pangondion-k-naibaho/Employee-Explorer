@@ -12,6 +12,9 @@ import com.employeeexplorer.client.data.model.response.EmployeeResponse
 import com.employeeexplorer.client.data.remote.ApiConfig
 import com.employeeexplorer.client.data.repository.CollectionEmployeesRepositoryImpl
 import com.employeeexplorer.client.databinding.ActivityHomeBinding
+import com.employeeexplorer.client.ui.custom_components.InputSearchView
+import com.employeeexplorer.client.ui.custom_components.PopUpNotificationListener
+import com.employeeexplorer.client.ui.custom_components.showPopUpNotification
 import com.employeeexplorer.client.ui.rv_adapters.ItemEmployeeAdapter
 import com.employeeexplorer.client.ui.viewmodels.home.HomeViewModel
 import com.employeeexplorer.client.ui.viewmodels.home.HomeViewModelFactory
@@ -39,7 +42,7 @@ class HomeActivity : ComponentActivity() {
 
     private fun observeStatus(){
         homeViewModel.isLoading.observe(this@HomeActivity, {
-            setLayoutBitDarker(it)
+            setLayoutForLoading(it)
         })
 
         homeViewModel.isFail.observe(this@HomeActivity, {
@@ -80,7 +83,10 @@ class HomeActivity : ComponentActivity() {
                     homeViewModel.getEmployees()
                     homeViewModel.collectionEmployeesResponse.observe(this@HomeActivity, {employeesResponse->
                         rvAdapter!!.updateItem(employeesResponse.employees!!)
+                        rvEmployee.visibility = View.VISIBLE
+                        tvEmpty.visibility = View.GONE
                     })
+                    isvHome.clearText()
                 }
             }
 
@@ -89,38 +95,73 @@ class HomeActivity : ComponentActivity() {
                     homeViewModel.getEmptyEmployees()
                     homeViewModel.collectionOtherEmployeesResponse.observe(this@HomeActivity, {otherEmployeeResponse->
                         rvAdapter!!.updateItem(otherEmployeeResponse.employees!!)
-
-                        if(otherEmployeeResponse.employees.size == 0) {
-                            rvEmployee.visibility = View.GONE
-                            tvEmpty.visibility = View.VISIBLE
-                        }
                     })
+                    rvEmployee.visibility = View.GONE
+                    tvEmpty.visibility = View.VISIBLE
+                    isvHome.clearText()
                 }
+            }
+
+            isvHome.apply {
+                setTextHelper(getString(R.string.tvSearchViewHint))
+                setListener(object: InputSearchView.InputSearchListener{
+                    override fun onClickSearch() {
+                        homeViewModel.getMalformedEmployees()
+                        homeViewModel.collectionOtherEmployeesResponse.observe(this@HomeActivity, {otherEmployeeResponse->
+                            setLayoutForLoading(true)
+                            this@HomeActivity.showPopUpNotification(
+                                textTitle = getString(R.string.popUpNotificationDataEmptyTitle),
+                                textDesc = getString(R.string.popUpNotificationDataEmptyDesc),
+                                backgroundImage = R.drawable.ic_fail,
+                                listener = object: PopUpNotificationListener{
+                                    override fun onPopUpClosed() {
+                                        setLayoutForLoading(false)
+                                        rvAdapter!!.apply {
+                                            updateItem(otherEmployeeResponse.employees!!)
+                                            setMalform(true)
+                                        }
+                                    }
+                                }
+                            )
+                        })
+                    }
+
+                    override fun onClearSearch() {
+                        isvHome.clearText()
+                        homeViewModel.getEmployees()
+                        homeViewModel.collectionEmployeesResponse.observe(this@HomeActivity, {employeesResponse->
+                            rvAdapter!!.updateItem(employeesResponse.employees!!)
+                            rvEmployee.visibility = View.VISIBLE
+                            tvEmpty.visibility = View.GONE
+                        })
+                    }
+
+                })
             }
         }
     }
 
-    private fun setLayoutForPopUp(isShown: Boolean){
-        if(isShown){
-            binding.loadingLayout.visibility = View.VISIBLE
-            binding.pbLoading.visibility = View.GONE
-        }else{
-            binding.loadingLayout.visibility = View.GONE
-            binding.pbLoading.visibility = View.GONE
-        }
-    }
+//    private fun setLayoutForPopUp(isShown: Boolean){
+//        if(isShown){
+//            binding.loadingLayout.visibility = View.VISIBLE
+//            binding.pbLoading.visibility = View.GONE
+//        }else{
+//            binding.loadingLayout.visibility = View.GONE
+//            binding.pbLoading.visibility = View.GONE
+//        }
+//    }
+//
+//    private fun setLayoutForLoading(isLoading: Boolean){
+//        if(isLoading) {
+//            binding.loadingLayout.visibility = View.VISIBLE
+//            binding.pbLoading.visibility = View.VISIBLE
+//        } else {
+//            binding.loadingLayout.visibility = View.GONE
+//            binding.pbLoading.visibility = View.GONE
+//        }
+//    }
 
-    private fun setLayoutForLoading(isLoading: Boolean){
-        if(isLoading) {
-            binding.loadingLayout.visibility = View.VISIBLE
-            binding.pbLoading.visibility = View.VISIBLE
-        } else {
-            binding.loadingLayout.visibility = View.GONE
-            binding.pbLoading.visibility = View.GONE
-        }
-    }
-
-    private fun setLayoutBitDarker(input: Boolean){
+    private fun setLayoutForLoading(input: Boolean){
         if(input){
             binding.loadingLayout.visibility = View.VISIBLE
             binding.pbLoading.visibility = View.GONE

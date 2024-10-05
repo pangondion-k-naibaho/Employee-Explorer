@@ -10,11 +10,14 @@
     <string name="tvFormatEmploymentType">Employement Type : %s</string>
     <string name="tvUnknownTeam">Unknown Team</string>
     <string name="tvEmployeeEmpty">No employees available at the moment. Please refresh to try again.</string>
-    <string name="toastEmployeeMalformedMessage">Unable to display employee details due to invalid data. Please refresh to try again.</string>
+    <string name="toastEmployeeMalformedMessage">Unable to display employee details due to invalid data.</string>
     <string name="dummyPopUpSuccessTitle">This is Success Title</string>
     <string name="dummyPopUpSuccessDesc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
     <string name="dummyPopUpQuestionDesc">Lorem ipsum dolor sit amet, consectetur adipiscing elit?</string>
     <string name="popUpOptionYes">Yes</string>
     <string name="popUpOptionNo">No</string>
     <string name="popUpOptionCancel">Cancel</string>
+    <string name="tvSearchViewHint">Search Employee</string>
+    <string name="popUpNotificationDataEmptyTitle">No Results</string>
+    <string name="popUpNotificationDataEmptyDesc">Employee search did not return any results. Please try again later.</string>
 </resources>

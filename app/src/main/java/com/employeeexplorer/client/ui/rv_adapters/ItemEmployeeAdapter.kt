@@ -15,8 +15,9 @@ import com.employeeexplorer.client.databinding.ItemRvEmployeeLayoutBinding
 class ItemEmployeeAdapter(
     var data: MutableList<EmployeeResponse>?,
     private val listener: ItemListener?= null,
-    var isMalformed: Boolean = false
+//    var isMalformed: Boolean = false
 ):RecyclerView.Adapter<ItemEmployeeAdapter.ItemHolder>() {
+    private var isMalformEmployee = false
     interface ItemListener{
         fun onItemClicked(item: EmployeeResponse)
         fun onItemMalformedClicked()
@@ -47,7 +48,7 @@ class ItemEmployeeAdapter(
                 tvType.text = String.format(itemView.context.getString(R.string.tvFormatEmploymentType), employmentType)
 
                 root.setOnClickListener {
-                    if(!isMalformed) listener?.onItemClicked(item) else listener?.onItemMalformedClicked()
+                    if(!isMalformEmployee) listener?.onItemClicked(item) else listener?.onItemMalformedClicked()
                 }
             }
         }
@@ -62,6 +63,10 @@ class ItemEmployeeAdapter(
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         holder.bind(data!!.get(position), listener)
+    }
+
+    fun setMalform(isMalform: Boolean){
+        isMalformEmployee = isMalform
     }
 
     fun addItem(listEmployee: List<EmployeeResponse>){

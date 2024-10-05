@@ -60,7 +60,10 @@ class InputSearchView: ConstraintLayout {
     }
 
     fun clearText(){
-        binding.etSearch.text.clear()
+        binding.etSearch.apply{
+            text.clear()
+            clearFocus()
+        }
     }
 
     fun setListener(searchListener: InputSearchListener){
