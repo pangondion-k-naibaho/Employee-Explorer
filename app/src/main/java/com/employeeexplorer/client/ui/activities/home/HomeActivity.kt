@@ -12,6 +12,7 @@ import com.employeeexplorer.client.data.model.response.EmployeeResponse
 import com.employeeexplorer.client.data.remote.ApiConfig
 import com.employeeexplorer.client.data.repository.CollectionEmployeesRepositoryImpl
 import com.employeeexplorer.client.databinding.ActivityHomeBinding
+import com.employeeexplorer.client.ui.activities.detail.DetailActivity
 import com.employeeexplorer.client.ui.custom_components.InputSearchView
 import com.employeeexplorer.client.ui.custom_components.PopUpNotificationListener
 import com.employeeexplorer.client.ui.custom_components.showPopUpNotification
@@ -62,7 +63,8 @@ class HomeActivity : ComponentActivity() {
                     employeesResponse.employees!!.toMutableList(),
                     object: ItemEmployeeAdapter.ItemListener{
                         override fun onItemClicked(item: EmployeeResponse) {
-                            Toast.makeText(this@HomeActivity, "Item Clicked", Toast.LENGTH_SHORT).show()
+                            startActivity(DetailActivity.newIntent(this@HomeActivity, item))
+                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                         }
 
                         override fun onItemMalformedClicked() {

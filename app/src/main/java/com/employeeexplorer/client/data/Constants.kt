@@ -15,5 +15,11 @@ class Constants {
         }
     }
 
+    interface EXTRA{
+        companion object{
+            const val EXTRA_EMPLOYEE = "EXTRA_EMPLOYEE"
+        }
+    }
+
 
 }

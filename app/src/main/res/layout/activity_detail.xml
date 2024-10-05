@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="30dp"
+    tools:context=".ui.activities.detail.DetailActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivPhoto"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivPhoto"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:fontFamily="@font/redhatdisplay_medium"
+        android:textColor="@color/techno_turqoise"
+        android:textStyle="bold"
+        android:text="@string/tvDummyName"/>
+
+    <TextView
+        android:id="@+id/tvEmailTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvName"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:fontFamily="@font/redhatdisplay_regular"
+        android:textColor="@color/darkest_navy"
+        android:text="@string/tvDetailEmailTitle"/>
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvEmailTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/tvEmailTitle"
+        android:textAlignment="textEnd"
+        android:textSize="16sp"
+        android:fontFamily="@font/redhatdisplay_medium"
+        android:textColor="@color/fresh_blue"
+        android:text="@string/tvDummyEmail"/>
+
+    <TextView
+        android:id="@+id/tvPhoneNumTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmailTitle"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:fontFamily="@font/redhatdisplay_regular"
+        android:textColor="@color/darkest_navy"
+        android:text="@string/tvDetailPhoneNumTitle"/>
+
+    <TextView
+        android:id="@+id/tvPhoneNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvPhoneNumTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPhoneNumTitle"
+        android:textAlignment="textEnd"
+        android:textSize="16sp"
+        android:fontFamily="@font/redhatdisplay_medium"
+        android:textColor="@color/fresh_blue"
+        android:text="@string/tvDummyPhoneNum"/>
+
+    <TextView
+        android:id="@+id/tvTeamTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPhoneNumTitle"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:fontFamily="@font/redhatdisplay_regular"
+        android:textColor="@color/darkest_navy"
+        android:text="@string/tvDetailTeamTitle"/>
+
+    <TextView
+        android:id="@+id/tvTeam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvTeamTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTeamTitle"
+        android:textAlignment="textEnd"
+        android:textSize="16sp"
+        android:fontFamily="@font/redhatdisplay_medium"
+        android:textColor="@color/black"
+        android:text="@string/tvDummyTeam"/>
+
+    <TextView
+        android:id="@+id/tvTypeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTeamTitle"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:fontFamily="@font/redhatdisplay_regular"
+        android:textColor="@color/darkest_navy"
+        android:text="@string/tvDetailTypeTitle"/>
+
+    <TextView
+        android:id="@+id/tvType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvTypeTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTypeTitle"
+        android:textAlignment="textEnd"
+        android:textSize="16sp"
+        android:fontFamily="@font/redhatdisplay_medium"
+        android:textColor="@color/black"
+        android:text="@string/tvDummyEmployeeType"/>
+
+    <TextView
+        android:id="@+id/tvBiographyTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTypeTitle"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:fontFamily="@font/redhatdisplay_regular"
+        android:textColor="@color/darkest_navy"
+        android:text="@string/tvDetailTeamTitle"/>
+
+    <TextView
+        android:id="@+id/tvBiography"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvBiographyTitle"
+        android:textAlignment="viewEnd"
+        android:textSize="16sp"
+        android:fontFamily="@font/redhatdisplay_medium"
+        android:textColor="@color/black"
+        android:text="@string/tvDummyBiography"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

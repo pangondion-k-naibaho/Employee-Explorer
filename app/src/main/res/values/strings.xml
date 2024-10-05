@@ -7,6 +7,7 @@
     <string name="tvDummyEmail">thisisdummy@mail.com</string>
     <string name="tvDummyTeam">Dummy Team</string>
     <string name="tvDummyEmployeeType">Dummy Type</string>
+    <string name="tvDummyBiography">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
     <string name="tvFormatEmploymentType">Employement Type : %s</string>
     <string name="tvUnknownTeam">Unknown Team</string>
     <string name="tvEmployeeEmpty">No employees available at the moment. Please refresh to try again.</string>
@@ -20,4 +21,9 @@
     <string name="tvSearchViewHint">Search Employee</string>
     <string name="popUpNotificationDataEmptyTitle">No Results</string>
     <string name="popUpNotificationDataEmptyDesc">Employee search did not return any results. Please try again later.</string>
+    <string name="tvDetailEmailTitle">Email :</string>
+    <string name="tvDetailPhoneNumTitle">Phone Num :</string>
+    <string name="tvDetailTeamTitle">Team :</string>
+    <string name="tvDetailTypeTitle">Type :</string>
+    <string name="tvDetailBiographyTitle">Biography :</string>
 </resources>
